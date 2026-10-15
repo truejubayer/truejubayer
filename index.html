@@ -61,13 +61,13 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--text-color);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
@@ -406,8 +406,8 @@
             transform: scale(1.2);
         }
 
-        /* Contact Section */
-        .contact-container {
+        /* Contact Section & About Page Section */
+        .page-container {
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
@@ -454,6 +454,32 @@
             display: inline-block;
         }
 
+        .about-site-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            text-align: left;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .about-site-box p {
+            margin-bottom: 15px;
+        }
+
+        .site-meta {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
         /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
             header {
@@ -462,11 +488,11 @@
             }
 
             nav ul {
-                gap: 15px;
+                gap: 12px;
             }
 
             nav ul li a {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .tab-content {
@@ -515,10 +541,10 @@
                 flex-direction: row;
                 justify-content: center;
                 background: rgba(252, 251, 249, 0.95);
-                backdrop-filter: blur(8px);
+                backdrop-filter: blur(10px);
                 padding: 12px 0;
                 border-top: 1px solid rgba(0,0,0,0.05);
-                gap: 18px;
+                gap: 15px;
             }
 
             body {
@@ -546,6 +572,7 @@
                 <li><a id="nav-about" class="active" onclick="switchTab('about')">About me</a></li>
                 <li><a id="nav-gallery" onclick="switchTab('gallery')">Gallery</a></li>
                 <li><a id="nav-contact" onclick="switchTab('contact')">Contact</a></li>
+                <li><a id="nav-aboutpage" onclick="switchTab('aboutpage')">About Page</a></li>
             </ul>
         </nav>
     </header>
@@ -628,7 +655,7 @@
 
     <!-- TAB 3: Contact -->
     <div id="contact" class="tab-content">
-        <div class="contact-container">
+        <div class="page-container">
             <h2 class="section-title">Get in Touch</h2>
             <p style="color: var(--gray); font-size: 0.95rem;">Feel free to connect with me across my social handles!</p>
             
@@ -644,6 +671,22 @@
 
             <div class="contact-note">
                 <i class="fa-solid fa-circle-info"></i> Note: Some social media links may not work temporarily if the respective account is deactivated or placed on hold.
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: About Page -->
+    <div id="aboutpage" class="tab-content">
+        <div class="page-container">
+            <h2 class="section-title">About This Website</h2>
+            <div class="about-site-box">
+                <p>This personal portfolio website has been created to showcase my academic journey, passion for science, coding projects, and memorable moments through a clean, aesthetic interface. It serves as a digital home to present who I am, what I love, and my future aspirations in a minimalist design.</p>
+                <p>Designed with a focus on simplicity, responsiveness, and smooth user interactions, this platform connects my thoughts and experiences in one place.</p>
+                
+                <div class="site-meta">
+                    <span>Version: 1.0</span>
+                    <span>Last Updated: October 15, 2026</span>
+                </div>
             </div>
         </div>
     </div>
@@ -693,18 +736,13 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Updated Photo Configuration Array with Custom Titles
+        // Photo Configuration Array (5 Photos)
         const photosConfig = [
             { file: "photo (1).jpg", title: "Last day of HSC" },
             { file: "photo (2).jpg", title: "Going to coaching..." },
             { file: "photo (3).jpg", title: "college" },
             { file: "photo (4).jpg", title: "udvash classroom" },
-            { file: "photo (5).jpg", title: "visit to railline..." },
-            { file: "photo (6).jpg", title: "photo (6).jpg" },
-            { file: "photo (7).jpg", title: "photo (7).jpg" },
-            { file: "photo (8).jpg", title: "photo (8).jpg" },
-            { file: "photo (9).jpg", title: "photo (9).jpg" },
-            { file: "photo (10).jpg", title: "photo (10).jpg" }
+            { file: "photo (5).jpg", title: "visit to railline..." }
         ];
 
         // Shuffle Function
