@@ -336,11 +336,18 @@
             box-shadow: 0 12px 25px rgba(0,0,0,0.08);
         }
 
+        /* Progressive Image Loading Effect */
         .gallery-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
             display: block;
+            filter: blur(10px);
+            transition: filter 0.5s ease-in-out;
+        }
+
+        .gallery-card img.loaded {
+            filter: blur(0);
         }
 
         .gallery-card-title {
@@ -756,7 +763,7 @@
             return array;
         }
 
-        // Render Gallery Photos with Click Event for Preview
+        // Render Gallery Photos with Lazy Loading & Progressive Load Effect
         function renderGallery() {
             const galleryGrid = document.getElementById('galleryGrid');
             galleryGrid.innerHTML = '';
@@ -770,7 +777,7 @@
                 card.onclick = () => openPreview(`photos/${photo.file}`, photo.title);
                 
                 card.innerHTML = `
-                    <img src="photos/${photo.file}" alt="${photo.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Image+Not+Found'">
+                    <img src="photos/${photo.file}" alt="${photo.title}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.src='https://via.placeholder.com/300x300?text=Image+Not+Found'">
                     <div class="gallery-card-title">${photo.title}</div>
                 `;
                 galleryGrid.appendChild(card);
